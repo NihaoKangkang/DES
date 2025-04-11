@@ -22,3 +22,24 @@ PC_2 = [14, 17, 11, 24, 1, 5, 3, 28, 15, 6, 21, 10, 23, 19, 12, 4, 26, 8, 16, 7,
 
 print(len(PC_1))
 print(len(PC_2))
+
+string = ''.join(format(byte, '08b') for byte in b'\x12\x34\x12')
+print(string)
+
+# generate E box
+temp = []
+for i in range(0, 32):
+    if i == 0:
+        temp.append(32)
+    elif i % 4 == 0:
+        temp.append(i)
+    temp.append(i + 1)
+    if i == 31:
+        temp.append(1)
+    elif i % 4 == 3:
+        temp.append(i + 2)
+print(temp)
+
+i = 15
+print(f"{i:04b}")
+print(type(b'\x12\x34\x12'))

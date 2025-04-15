@@ -105,7 +105,7 @@ def data_encryption_standard(data, rk):
         for i in range(0, 16):
             L.append(R[i])
             # print(i, R[i], type(R[i]))
-            R.append(format(int(L[i], 2) ^ int(F(format(int(R[i], 2), '032b'), rk[i]), 2), '032b'))
+            R.append(format(int(L[i], 2) ^ int(F(R[i], rk[i]), 2), '032b'))
         binary_result = permuted_choice(R[16] + L[16], IP_1)
         result += binary_string2bytes(binary_result)
     return result
